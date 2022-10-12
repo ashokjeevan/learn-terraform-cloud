@@ -22,7 +22,7 @@ data "aws_ami_ids" "windows_ami" {
 // }
 
 output "windows_ami_list_result" {
-  value = data.aws_ami_ids.windows_ami[count.index].ids
+  value = data.aws_ami_ids.windows_ami[*].ids
 }
 
 // data "aws_ami" "ubuntu" {
