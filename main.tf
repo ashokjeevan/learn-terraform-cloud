@@ -7,21 +7,23 @@ data "aws_ami_ids" "windows_ami" {
   owners = ["self"]
   # sort_ascending = true
 
-  for_each = var.ami_names
+  // for_each = var.ami_names
+
+  count = length(var.ami_names)
 
   filter {
     name = "name"
-    values = [each.value]
+    values = var.ami_nams[count.index]
   }
 }
 
-output "windows_ami_count_result" {
-  value = "${length(data.aws_ami_ids.windows_ami[each.key].ids)}"
-}
+// output "windows_ami_count_result" {
+//   value = "${length(data.aws_ami_ids.windows_ami[each.key].ids)}"
+// }
 
-output "windows_ami_list_result" {
-  value = data.aws_ami_ids.windows_ami[each.key].ids
-}
+// output "windows_ami_list_result" {
+//   value = data.aws_ami_ids.windows_ami[each.key].ids
+// }
 
 // data "aws_ami" "ubuntu" {
 //   most_recent = true
