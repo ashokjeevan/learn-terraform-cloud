@@ -13,7 +13,7 @@ data "aws_ami_ids" "windows_ami" {
 
   filter {
     name = "name"
-    values = var.ami_names[count.index]
+    values = [var.ami_names[count.index]]
   }
 }
 
