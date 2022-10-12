@@ -7,13 +7,13 @@ data "aws_ami_ids" "windows_ami" {
   owners = ["self"]
 
   filter {
-    name = "Name"
+    name = "name"
     values = ["windows*"]
   }
 }
 
 output "windows_ami_result" {
-  value = aws_ami_ids.ids
+  value = "${length(data.aws_ami_ids.ids)}"
 }
 
 // data "aws_ami" "ubuntu" {
