@@ -5,6 +5,7 @@ provider "aws" {
 # Fetch AMIs from account
 data "aws_ami_ids" "windows_ami" {
   owners = ["self"]
+  sort_ascending = true
 
   filter {
     name = "name"
