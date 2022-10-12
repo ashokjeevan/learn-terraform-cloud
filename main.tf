@@ -21,9 +21,9 @@ data "aws_ami_ids" "windows_ami" {
 //   value = "${length(data.aws_ami_ids.windows_ami[each.key].ids)}"
 // }
 
-// output "windows_ami_list_result" {
-//   value = data.aws_ami_ids.windows_ami[each.key].ids
-// }
+output "windows_ami_list_result" {
+  value = data.aws_ami_ids.windows_ami.ids
+}
 
 // data "aws_ami" "ubuntu" {
 //   most_recent = true
