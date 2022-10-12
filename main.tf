@@ -4,16 +4,16 @@ provider "aws" {
 
 # Fetch AMIs from account
 data "aws_ami_ids" "windows_ami" {
-  owners = "self"
+  owners = ["self"]
 
   filter {
     name = "Name"
-    values = "windows*"
+    values = ["windows*"]
   }
 }
 
 output "windows_ami_result" {
-  value = data.aws_ami_ids.ids
+  value = aws_ami_ids.ids
 }
 
 // data "aws_ami" "ubuntu" {
