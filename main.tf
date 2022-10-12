@@ -7,9 +7,11 @@ data "aws_ami_ids" "windows_ami" {
   owners = ["self"]
   # sort_ascending = true
 
+  for_each = var.ami_names
+
   filter {
     name = "name"
-    values = ["windows*"]
+    values = [each.value]
   }
 }
 
