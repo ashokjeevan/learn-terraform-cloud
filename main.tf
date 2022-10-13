@@ -42,7 +42,7 @@ output "local_values" {
 }
 
 #SSM Parameter Store creation
-resource "aws_ssm_paramter" "ssm_parameters_ami_ids" {
+resource "aws_ssm_parameter" "ssm_parameters_ami_ids" {
   for_each = local.ami_results
 
   name = "/tec/golden-ami/${each.key}/ami_id"
