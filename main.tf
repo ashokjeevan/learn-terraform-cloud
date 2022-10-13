@@ -34,7 +34,7 @@ data "aws_ami_ids" "ami_ids" {
 }
 
 output "ami_map_results" {
-  value = data.aws_ami_ids.ami_ids.[*].ids
+  value = data.aws_ami_ids.ami_ids[*].ids
 }
 
 #SSM Parameter Store creation
