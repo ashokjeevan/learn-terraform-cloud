@@ -42,7 +42,7 @@ output "test_map" {
 }
 
 output "ami_list_ids" {
-  value = data.aws_ami_ids.ami_ids.ids
+  value = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids}
 }
 
 #SSM Parameter Store creation
