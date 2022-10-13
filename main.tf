@@ -47,7 +47,7 @@ resource "aws_ssm_parameter" "ssm_parameters_ami_ids" {
 
   name = "/tec/golden-ami/${each.key}/ami_id"
   type = "String"
-  value = each.key[0]
+  value = each.value[0]
 
   data_type = "aws:ec2:image"
 }
