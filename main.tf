@@ -33,14 +33,6 @@ data "aws_ami_ids" "ami_ids" {
   }
 }
 
-// output "ami_map_results" {
-//   value = data.aws_ami_ids.ami_ids[each.key].ids
-// }
-
-output "ami_list_ids" {
-  value = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids}
-}
-
 locals {
   ami_results = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids}
 }
@@ -50,11 +42,13 @@ output "local_values" {
 }
 
 #SSM Parameter Store creation
-// resource "aws_ssm_paramter" "ssm_parameters_ami_ids" {
+resource "aws_ssm_paramter" "ssm_parameters_ami_ids" {
+  for_each = local.ami_results
 
+  name = "/tec/golden-ami/${each.key}/ami_id"
+  type = "String"
+  value = each.key[0]
 
-//   name = ""
-//   type = "String"
-//   value = ""
-// }
+  data_type = "aws:ec2:image"
+}
 
