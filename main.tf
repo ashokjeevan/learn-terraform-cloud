@@ -37,6 +37,10 @@ output "ami_map_results" {
   value = data.aws_ami_ids.ami_ids[each.key].ids
 }
 
+output "test_map" {
+  value = var.ami_names_map["AMZN2"]
+}
+
 #SSM Parameter Store creation
 // resource "aws_ssm_paramter" "ssm_parameters_ami_ids" {
 

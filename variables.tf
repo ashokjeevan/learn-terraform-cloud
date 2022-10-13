@@ -19,8 +19,8 @@ variable "ami_names_map" {
   description = "AMI names in a map structure"
   type = map(string)
   default = {
-    "AMZN2" = "linux*",
-    "Windows2016" = "windowsv*"
+    AMZN2 = "linux*"
+    Windows2016 = "windowsv*"
   }
 }
 
