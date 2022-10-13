@@ -37,12 +37,16 @@ data "aws_ami_ids" "ami_ids" {
 //   value = data.aws_ami_ids.ami_ids[each.key].ids
 // }
 
-output "test_map" {
-  value = var.ami_names_map["AMZN2"]
-}
-
 output "ami_list_ids" {
   value = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids}
+}
+
+locals {
+  ami_results = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids}
+}
+
+output "local_values" {
+  value = local.ami_results
 }
 
 #SSM Parameter Store creation
