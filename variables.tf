@@ -21,6 +21,7 @@ variable "ami_names_map" {
   default = {
     AMZN2 = "linux*"
     Windows2016 = "windowsv*"
+    RHEL = "redhatv8*"
   }
 }
 

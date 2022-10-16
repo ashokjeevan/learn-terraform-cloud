@@ -51,4 +51,3 @@ resource "aws_ssm_parameter" "ssm_parameters_ami_ids" {
 
   data_type = "aws:ec2:image"
 }
-
