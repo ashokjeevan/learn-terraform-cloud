@@ -30,8 +30,8 @@ variable "sample_map" {
   type = map(string)
 
   default = {
-    "first" = ["a", "b", "c"]
-    "second" = []
+    "first" = ["a", "b", "c"],
+    "second" = [],
     "third" = ["x", "y", "z"]
   }
 }
