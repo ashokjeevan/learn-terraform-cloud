@@ -34,7 +34,7 @@ data "aws_ami_ids" "ami_ids" {
 }
 
 locals {
-  ami_results = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids if v.ids != null}
+  ami_results = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids if v.ids[0] != []}
 }
 
 output "local_values" {
