@@ -42,12 +42,12 @@ output "local_values" {
 }
 
 #SSM Parameter Store creation
-// resource "aws_ssm_parameter" "ssm_parameters_ami_ids" {
-//   for_each = local.ami_results
+resource "aws_ssm_parameter" "ssm_parameters_ami_ids" {
+  for_each = local.ami_results
 
-//   name = "/tec/golden-ami/${each.key}/ami_id"
-//   type = "String"
-//   value = each.value[0]
+  name = "/tec/golden-ami/${each.key}/ami_id"
+  type = "String"
+  value = each.value[0]
 
-//   data_type = "aws:ec2:image"
-// }
+  data_type = "aws:ec2:image"
+}
