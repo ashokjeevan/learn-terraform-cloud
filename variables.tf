@@ -27,7 +27,7 @@ variable "ami_names_map" {
 
 variable "sample_map" {
   description = "Sample test map"
-  type = map(string)
+  type = map
 
   default = {
     "first" = ["a", "b", "c"],
