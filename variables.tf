@@ -25,3 +25,13 @@ variable "ami_names_map" {
   }
 }
 
+variable "sample_map" {
+  description = "Sample test map"
+  type = map(string)
+
+  default = {
+    first = ["a", "b", "c"]
+    second = []
+    third = ["x", "y", "z"]
+  }
+}
