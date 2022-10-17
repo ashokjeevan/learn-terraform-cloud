@@ -22,6 +22,7 @@ variable "ami_names_map" {
     AMZN2 = "linux*"
     Windows2016 = "windowsv*"
     RHEL = "redhatv8*"
+    MAC = "mac*"
   }
 }
 
