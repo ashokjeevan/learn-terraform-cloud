@@ -21,6 +21,18 @@ variable "ami_names_map" {
   default = {
     AMZN2 = "linux*"
     Windows2016 = "windowsv*"
+    RHEL = "redhatv8*"
+    MAC = "mac*"
   }
 }
 
+variable "sample_map" {
+  description = "Sample test map"
+  type = map
+
+  default = {
+    "first" = ["a", "b", "c"],
+    "second" = [],
+    "third" = ["x", "y", "z"]
+  }
+}

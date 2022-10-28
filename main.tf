@@ -22,33 +22,51 @@ provider "aws" {
 // }
 //Works till here
 
-data "aws_ami_ids" "ami_ids" {
-  owners = ["self"]
+# data "aws_ami_ids" "ami_ids" {
+#   owners = ["self"]
 
-  for_each = var.ami_names_map
+#   for_each = var.ami_names_map
 
-  filter {
-    name = "name"
-    values = [each.value]
-  }
-}
+#   filter {
+#     name = "name"
+#     values = [each.value]
+#   }
+# }
 
-locals {
-  ami_results = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids}
-}
+# locals {
+#   ami_results = {for k, v in data.aws_ami_ids.ami_ids: k => v.ids if v != []}
+# }
 
-output "local_values" {
-  value = local.ami_results
-}
+# output "local_values" {
+#   value = local.ami_results
+# }
+
+
+# locals {
+#   sample_results = var.sample_map
+# }
+
+# output "sample_result" {
+#   value = local.sample_results
+# }
 
 #SSM Parameter Store creation
-resource "aws_ssm_parameter" "ssm_parameters_ami_ids" {
-  for_each = local.ami_results
+// resource "aws_ssm_parameter" "ssm_parameters_ami_ids" {
+//   for_each = local.ami_results
 
-  name = "/tec/golden-ami/${each.key}/ami_id"
-  type = "String"
-  value = each.value[0]
+//   name = "/tec/golden-ami/${each.key}/ami_id"
+//   type = "String"
+//   value = each.value[0]
 
-  data_type = "aws:ec2:image"
+//   data_type = "aws:ec2:image"
+// }
+
+
+data "aws_lambda_invocation" "lambda_invoke"  {
+  function_name = "arn:aws:lambda:us-east-1:175975633202:function:testLambda"
+  input = <<JSON
+{
+  "currentdate": "October282022"
 }
-
+JSON
+}
