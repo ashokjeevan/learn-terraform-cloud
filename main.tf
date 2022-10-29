@@ -9,3 +9,7 @@ locals {
 output "results" {
     value = local.lambda_result
 }
+
+provider "aws" {
+  region = var.region
+}

@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.region
-}
-
 # Fetch AMIs from account - this works
 // data "aws_ami_ids" "windows_ami" {
 //   owners = ["self"]
