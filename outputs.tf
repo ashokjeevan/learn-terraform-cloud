@@ -8,5 +8,5 @@
 
 output "from_lamda" {
     # value = jsondecode(data.aws_lambda_invocation.lambda_invoke.result)["body"]
-    value = data.aws_lambda_invocation.lambda_invoke.result["body"]
+    value = data.aws_lambda_invocation.lambda_invoke.result
 }
