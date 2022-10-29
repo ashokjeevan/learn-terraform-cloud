@@ -6,7 +6,7 @@
 //   value = aws_instance.ubuntu.arn
 // }
 
-output "from_lamda" {
+output "result_from_lambda" {
     # value = jsondecode(data.aws_lambda_invocation.lambda_invoke.result)["body"]
     value = data.aws_lambda_invocation.lambda_invoke.result
 }
