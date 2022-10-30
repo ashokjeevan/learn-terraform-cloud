@@ -7,6 +7,6 @@
 // }
 
 output "result_from_lambda" {
-    value = jsondecode(data.aws_lambda_invocation.lambda_invoke.result)
+    value = jsondecode(data.aws_lambda_invocation.lambda_invoke.result)("hi")
     # value = data.aws_lambda_invocation.lambda_invoke.result
 }
