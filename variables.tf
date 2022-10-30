@@ -5,34 +5,34 @@ variable "region" {
 
 variable "ami_names" {
   description = "Various AMIs supported"
-  type = list(string)
-  default = ["linux*", "windowsv*"]
+  type        = list(string)
+  default     = ["linux*", "windowsv*"]
 }
 
 variable "ami_ssm_names" {
   description = "Names to be entered in the SSM Parameter Store"
-  type = list(string)
-  default = ["AMZN2","Windows2016"]
+  type        = list(string)
+  default     = ["AMZN2", "Windows2016"]
 }
 
 variable "ami_names_map" {
   description = "AMI names in a map structure"
-  type = map(string)
+  type        = map(string)
   default = {
-    AMZN2 = "linux*"
+    AMZN2       = "linux*"
     Windows2016 = "windowsv*"
-    RHEL = "redhatv8*"
-    MAC = "mac*"
+    RHEL        = "redhatv8*"
+    MAC         = "mac*"
   }
 }
 
 variable "sample_map" {
   description = "Sample test map"
-  type = map
+  type        = map(any)
 
   default = {
-    "first" = ["a", "b", "c"],
+    "first"  = ["a", "b", "c"],
     "second" = [],
-    "third" = ["x", "y", "z"]
+    "third"  = ["x", "y", "z"]
   }
 }
