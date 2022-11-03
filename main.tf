@@ -13,3 +13,9 @@ output "results" {
 provider "aws" {
   region = var.region
 }
+
+module "ssm_parameter_creation" {
+    source = "./modules/ssm-parameters"
+
+    ami_details = local.lambda_result
+}
