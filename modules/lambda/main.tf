@@ -77,17 +77,20 @@ resource "aws_iam_policy" "iam_policy" {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Effect": "Allow",
       "Action": [
         "dynamodb:*"
       ],
       "Resource": "arn:aws:dynamodb:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:table/*"
     },
     {
+      "Effect": "Allow",
       "Action": [
         "logs:CreateLogGroup"
       ],
       "Resource": "*"
     }
   ]
-}EOT
+}
+EOT
 }
