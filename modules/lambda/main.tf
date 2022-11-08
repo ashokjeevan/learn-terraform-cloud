@@ -89,5 +89,5 @@ resource "aws_iam_policy" "iam_policy" {
       "Resource": "*"
     }
   ]
-}
+}EOT
 }

@@ -14,8 +14,9 @@ provider "aws" {
   region = var.region
 }
 
-module "ssm_parameter_creation" {
-    source = "./modules/ssm-parameters"
+# SSM Parameter Store creation based on the output of the lambda invocation
+# module "ssm_parameter_creation" {
+#     source = "./modules/ssm-parameters"
 
-    ami_details = local.lambda_result
-}
+#     ami_details = local.lambda_result
+# }
