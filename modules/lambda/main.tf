@@ -66,3 +66,28 @@ data "aws_lambda_invocation" "lambda_invoke"  {
 }
 JSON
 }
+
+# Lambda execution role creation
+
+# IAM policy creation
+resource "aws_iam_policy" "iam_policy" {
+  name = "test_policy"
+  policy = <<EOT
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "dynamodb:*"
+      ],
+      "Resource": "arn:aws:dynamodb:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:table/*"
+    },
+    {
+      "Action": [
+        "logs:CreateLogGroup"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+}
