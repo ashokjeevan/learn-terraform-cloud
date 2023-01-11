@@ -1,18 +1,18 @@
-module "lambda_invoke" {
-  source = "./modules/lambda"
-}
+# module "lambda_invoke" {
+#   source = "./modules/lambda"
+# }
 
-locals {
-  lambda_result = module.lambda_invoke.result_from_lambda
-}
+# locals {
+#   lambda_result = module.lambda_invoke.result_from_lambda
+# }
 
-output "results" {
-  value = local.lambda_result
-}
+# output "results" {
+#   value = local.lambda_result
+# }
 
-provider "aws" {
-  region = var.region
-}
+# provider "aws" {
+#   region = var.region
+# }
 
 # SSM Parameter Store creation based on the output of the lambda invocation
 # module "ssm_parameter_creation" {
@@ -20,3 +20,8 @@ provider "aws" {
 
 #     ami_details = local.lambda_result
 # }
+
+# CloudWatch list all log groups
+module "list_all_cloudwatch_log_groups" {
+  source = "./modules/cloudwatch"
+}
